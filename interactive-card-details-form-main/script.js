@@ -37,24 +37,28 @@ const darkGrey = 'var(--very-dark-grey-violet)';
 
 confirmButton.addEventListener('click', 
 () => {
-        const arrays = [inputName, inputNumber, inputMonth, inputYear , inputCVC];
-        const errorList = [errorName, errorNumber, errorMonth, errorYear, errorCVC];
-        const errorMSG = [`Name can't be blank!`, `Card number can't be blank!`, `Month can't be blank!` , `Year can't be blank!`, `CVC can't be blank!`];
-        const functions = [nameFunction, numberFunction, monthFunction, yearFunction, cvcFunction];
-        
-        if (nameFunction() && numberFunction() && monthFunction() && yearFunction() && cvcFunction()){
-            form.style.display = 'none';
-            completed.style.display= 'flex';
-        }
-
-        if(!(nameFunction() && numberFunction() && monthFunction() && yearFunction() && cvcFunction())) {
-            for (let counter = 0; counter < arrays.length; counter++){
-                if (arrays[counter].value == ''){
-                    arrays[counter].style.borderColor = lightGrey;
-                    errorList[counter].style.display = 'block';
-                    errorList[counter].innerText = errorMSG[counter];
-                }
+        // console.clear();
+        let counter = 0;
+        let arrays = [inputName, inputNumber, inputMonth, inputYear , inputCVC];
+        let errorList = [errorName, errorNumber, errorMonth, errorYear, errorCVC];
+        let errorMSG = [`Name can't be blank`, `Card number can't be blank`, `Month can't be blank` , `Year can't be blank`, `CVC can't be blank`];
+        let functions = [nameFunction, numberFunction, monthFunction, yearFunction, cvcFunction];
+        while(counter < arrays.length) {
+            if (arrays[counter].value == ''){
+                arrays[counter].style.borderColor = lightGrey;
+                errorList[counter].style.display = 'block';
+                errorList[counter].innerText = errorMSG[counter];
+                console.log(arrays[counter]);
+                console.log(arrays[counter].value);
             }
+            else if (!(functions[counter]())){
+                functions[counter]();
+            }
+            else if(nameFunction() && numberFunction() && monthFunction() && yearFunction() && cvcFunction()) {
+                form.style.display = 'none';
+                completed.style.display = 'flex';        
+            }
+            counter += 1;
         }
     }
 )
@@ -83,25 +87,24 @@ continueButton.addEventListener('click',
 // Validity funtions
 
 function nameFunction(){
-    
-    if (inputName.value.match(/\d/)){
-        inputName.style.borderColor = 'red';
-        errorName.style.display = 'block';
-        errorName.innerText = 'Name can only consist of alphabetic data!';
-        return false;
-    }
-
-    else if(inputName.value == ''){
+    if(inputName.value == ''){
         inputName.style.borderColor = lightGrey;
         errorName.style.display = 'none';
         cardName.innerText = 'Jane Appleseed';
         return false;
     }
 
+    else if (inputName.value.match(/\d/)){
+        inputName.style.borderColor = 'red';
+        errorName.style.display = 'block';
+        errorName.innerText = 'Name can only consist of alphabetic data!';
+        return false;
+    }
+
     else if(inputName.value.length < 3){
         inputName.style.borderColor = 'red';
         errorName.style.display = 'block';
-        errorName.innerText = 'Name must contain more than two letters at least!';
+        errorName.innerText = 'Name must consist of more than two letters at least!';
         cardName.innerText = 'Jane Appleseed';
         return false;
     }
@@ -111,6 +114,7 @@ function nameFunction(){
         cardName.innerText = inputName.value;
         return true;
     } 
+
 }
 
 function numberFunction(){
@@ -166,10 +170,10 @@ function monthFunction(){
         inputMonth.style.borderColor = 'red';
         let err = 'an error occured';
         if (inputMonth.value.match(/[A-Z]/i)){
-            err = `Month must not be filled with an alphanumeric value!`;
+            err = `Month must not be filled with an alphanumeric value`;
         }
          else if(Number(inputMonth.value) > 12 || Number(inputMonth.value) < 1){
-            err = 'Number must not be smaller than 1 or greater than 12!';
+            err = 'Number must not be smaller than 1 or greater than 12';
          }
         errorMonth.innerText = err;
         return false;
@@ -201,11 +205,12 @@ function yearFunction(){
             err = `Year must not be filled with an alphanumeric value!`;
         }
          else if(Number(inputYear.value) > 99){
-            err = 'Year must not be greater than 99!'; 
+            err = 'Year must not be greater than 99'; 
          }
         errorYear.innerText = err;
         return false;
     }
+    
 }
 
 function cvcFunction(){
@@ -221,6 +226,7 @@ function cvcFunction(){
         }
         else if(Number(inputCVC.value < 100)){
             cvc.innerText = '0' + parseInt(inputCVC.value);
+            console.log(Number(inputCVC.value))
         }
         else{
             cvc.innerText = Number(inputCVC.value);
