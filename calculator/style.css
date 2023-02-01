@@ -51,14 +51,14 @@ body{
     align-items: center;
     font-weight:500;
     font-size:22px;
-    transition: background-color 270ms;
+    transition: background-color 300ms;
     outline: none;
     border: none;
     cursor: pointer;
 }
 
 .button:hover{
-    background-color: rgba(250, 235, 215,0.4); 
+    background-color: rgba(250, 235, 215,0.6); 
 }
 
 .controls{
