@@ -8,19 +8,18 @@
   <title>Sheikh Mugees | Web Developer</title>
 </head>
 <body>
-  <div class="wrapper">
     <header>
       <div class="container">
         <h3>Sheikh Mugees</h3>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Resume</li>
-          <li>Portfolio</li>
+          <a href="#main"><li>Home</li></a>
+          <a href="#information"><li>About</li></a>
+          <a href="#portfolio"><li>Portfolio</li></a>
         </ul>
-        <h4>Contact me</h4>
+        <a href="#contact-me"><h4>Contact me</h4></a>
       </div>
     </header>
+  <div class="wrapper">
     <div id="main">
       <div class="container">
         <section>
@@ -28,8 +27,8 @@
           <div class="last-name">Mugees</div>
           <div class="skill">Hi there! I am a Web Developer!</div>
           <div class="buttons">
-            <a href="#"><div class="about-me">About me</div></a>
-            <a href="#"><div class="portfolio">Portfolio</div></a>
+            <a href="#information"><div class="about-me">About me</div></a>
+            <a href="#portfolio"><div class="portfolio">Portfolio</div></a>
           </div>
         </section>
       </div>
@@ -38,7 +37,7 @@
         <div class="line"></div>
         <a href="#information"><div class="circle"></div></a>
         <div class="line"></div>
-        <a href="#"><div class="circle"></div></a>
+        <a href="#portfolio"><div class="circle"></div></a>
       </div>
     </div>
     <div id="information">
@@ -77,12 +76,76 @@
       </div>
     </div>
     <div id="portfolio">
-      <!-- <ul>
-        <li>hello</li>
-        <li>HI</li>
-        <li>IH</li>
-      </ul> -->
-
+      <div class="container item-container">
+        <section class="item-one flex-portfolio">
+          <div class="detail">
+            <h1>Interactive Dynamic Card Detail Form</h1>
+            <p>A page that not only just takes input but also verify their validity using RegEx, throws error(s) if any input is wrong, changes display content on correct submition while also being responsive to multiple pages!</p>
+            <ul class="nav-items">
+              <a href="#card-form-desktop"><li>Desktop</li></a><a href="#card-form-ipad"><li>Tablet</li></a><a href="#card-form-mobile"><li>Mobile</li></a>
+            </ul>
+          </div>
+          <div class="images">
+            <div class="box" id="card-form-desktop">
+              <img class="img-desktop" src="images/card-form-desktop.png">
+            </div>
+            <div class="box" id="card-form-ipad">
+              <img class="img-tablet" src="images/card-form-ipad.png">
+            </div>
+            <div class="box" id="card-form-mobile">
+              <img class="img-mobile" src="images/card-form-mobile.png">
+            </div>
+          </div>
+        </section>
+        <section class="item-two flex-portfolio">
+          <div class="detail">
+            <h1>Minimilist calculator</h1>
+            <p>A calculator featuring CSS grid display to create the minimilist and pleasing look of itself, using JavaScript's OOP behind the scene to compute things!  </p>
+          </div>
+          <div class="images">
+            <img src="images/calculator.png" alt="" class="img-mobile">
+          </div>
+        </section>
+      </div>
+      <div class="navigation">
+        <a href="#main"><div class="circle"></div></a>
+        <div class="line"></div>
+        <a href="#information"><div class="circle"></div></a>
+        <div class="line"></div>
+        <a href="#portfolio"><div class="circle active"></div></a>
+      </div>
+    </div>
+    <div id="contact-me">
+      <div class="img"></div>
+      <div class="content">
+        <div class="container">
+          <div class="goodbye">
+            <h1>And this is me!</h1>
+            <p>I hope you have liked my work!</p>
+            <p>I will be pleased to be working with you!</p>
+          </div>
+          <div class="syg">
+            <h1>You can connect with me</h1>
+            <nav>
+              <ul>
+                <li>
+                  <svg class="linkedin" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24"><path fill="currentColor" d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/></svg>
+                  My linked in account
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-.4 4.25l-6.54 4.09c-.65.41-1.47.41-2.12 0L4.4 8.25a.85.85 0 1 1 .9-1.44L12 11l6.7-4.19a.85.85 0 1 1 .9 1.44z"/></svg>
+                  My Mail address
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59c.4.07.55-.17.55-.38c0-.19-.01-.82-.01-1.49c-2.01.37-2.53-.49-2.69-.94c-.09-.23-.48-.94-.82-1.13c-.28-.15-.68-.52-.01-.53c.63-.01 1.08.58 1.23.82c.72 1.21 1.87.87 2.33.66c.07-.52.28-.87.51-1.07c-1.78-.2-3.64-.89-3.64-3.95c0-.87.31-1.59.82-2.15c-.08-.2-.36-1.02.08-2.12c0 0 .67-.21 2.2.82c.64-.18 1.32-.27 2-.27c.68 0 1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82c.44 1.1.16 1.92.08 2.12c.51.56.82 1.27.82 2.15c0 3.07-1.87 3.75-3.65 3.95c.29.25.54.73.54 1.48c0 1.07-.01 1.93-.01 2.2c0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                  My Github address
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <a href="#main" class="to-top">&#8673;</a>
+        </div>
+      </div>
     </div>
   </div>
 </body>
