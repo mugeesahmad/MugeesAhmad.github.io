@@ -8,14 +8,17 @@
   <title>Sheikh Mugees | Web Developer</title>
 </head>
 <body>
-  <div class="mobile-toggle" data-is-open="true">Open</div>
-  <div class="side-nav side-nav-active">
+  <div class="mobile-toggle">
+    <svg id="nav-btn-open" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 50 50"><path fill="currentColor" d="M10 12h30v4H10zm0 10h30v4H10zm0 10h30v4H10z"/></svg>
+    <svg id="nav-btn-close" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275q-.425 0-.7-.275q-.275-.275-.275-.7q0-.425.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7L13.4 12l4.9 4.9q.275.275.275.7q0 .425-.275.7q-.275.275-.7.275q-.425 0-.7-.275Z"/></svg>
+  </div>
+  <div class="side-nav" data-is-open="close">
     <ul>
-      <a href="#main"><li>Home</li></a>
-      <a href="#information"><li>About</li></a>
-      <a href="#portfolio"><li>Portfolio</li></a>
+      <a data-nav-btns href="#main"><li>Home</li></a>
+      <a data-nav-btns href="#information"><li>About</li></a>
+      <a data-nav-btns href="#portfolio"><li>Portfolio</li></a>
     </ul>
-    <a href="#contact-me"><h4>Contact me</h4></a>
+    <a data-nav-btns href="#contact-me"><h4>Contact me</h4></a>
   </div>
     <header>
       <div class="container">
@@ -122,7 +125,9 @@
             <p>A calculator featuring CSS grid display to create the minimilist and pleasing look of itself, using JavaScript's OOP behind the scene to compute things!  </p>
           </div>
           <div class="images">
-            <img src="images/calculator.png" alt="" class="img-mobile">
+            <div class="box">
+              <img src="images/calculator.png" alt="" class="img-mobile">
+            </div>
           </div>
         </section>
       </div>
@@ -135,7 +140,6 @@
       </div>
     </div>
     <div id="contact-me">
-      <div class="img"></div>
       <div class="content">
         <div class="container">
           <div class="goodbye">

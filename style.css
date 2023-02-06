@@ -9,6 +9,7 @@
 
 body{
   overflow-y: hidden;
+  overflow-x: hidden !important;
 }
 
 a{
@@ -59,6 +60,16 @@ header ul li:hover{
 }
 
 .mobile-toggle{
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+}
+
+#nav-btn-open{
+  display: block;
+}
+
+#nav-btn-close{
   display: none;
 }
 
@@ -66,16 +77,20 @@ header ul li:hover{
   position: absolute;
   z-index: 1999;
   top:0;
-  right: -100px;
+  right: -300px;
   height: 100vh;
   width: 300px;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6));
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5));
   backdrop-filter: blur(5px);
-  transition: right 300ms ease-in;
+  transition: all 300ms ease-in-out;
+}
+
+.side-nav[data-is-open='open']{
+  right: 0;
 }
 
 .side-nav ul {
@@ -397,6 +412,9 @@ header ul li:hover{
   width: 100vw;
   color: white;
   position: relative;
+  background-image: url(images/picture.jpg);
+  background-size: cover;
+  background-position: center;
 
 }
 
@@ -419,16 +437,12 @@ header ul li:hover{
 }
 
 #contact-me > .content{
-  position: absolute;
-  z-index: 2;
   height: 100vh;
   width: 100vw;
   color: white;
-  left: 0;
-  right: 0;
-  top: 0;
   padding-top: 50px ;
   display: flex;
+  backdrop-filter: blur(5px);
 }
 
 .content .container{
@@ -574,6 +588,67 @@ header ul li:hover{
   header .container{
     justify-content: center;
   }
+
+  .item-home{
+    width: 80% !important;
+    display: flex !important;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+  }
+
+  .flex-portfolio{
+    min-height: 80vh;
+    display: block;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+  
+  .detail, .images{
+    min-height: 80vh;
+    min-width: 80%;
+    scroll-snap-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .images{
+    display: block;
+  }
+
+  .nav-items{
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .nav-items a{
+    margin: 0 10px;
+    font-size: 16px; 
+  }
+
+  .box{
+    min-height:80vh !important;
+  }
+
+  #contact-me .goodbye h1{
+    font-size: 50px;
+  }
+
+  .content p{
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .to-top{
+    font-size: 50px;
+  }
+  .to-top::after {
+    font-size: 15px;
+  }
+
 }
 
 @media(max-width: 440px){
@@ -595,16 +670,25 @@ header ul li:hover{
   }
 
   .about-me, .portfolio{
-    width: 160px;
+    width: 150px;
+  }
+
+  .myself div h1{
+    font-size: 40px;
+  }
+
+  #portfolio section .img-desktop, #portfolio section .img-tablet, #portfolio section .img-mobile{
+    max-width: 100%;
+  }
+
+  #contact-me .goodbye h1{
+    font-size: 40px;
   }
 
   .item-container{
     min-height: 85vh !important;
   }
 
-  .flex-portfolio{
-    min-height: 85vh;
-  }
   .nav-items{
     width: 100%;
     margin: 3% 0;
@@ -612,22 +696,6 @@ header ul li:hover{
 
   .content .container{
     height: 80vh;
-  }
-
-  #contact-me .goodbye h1{
-    font-size: 50px;
-  }
-
-  .content p{
-    text-align: center;
-    padding: 5px 0;
-  }
-
-  .to-top{
-    font-size: 50px;
-  }
-  .to-top::after {
-    font-size: 15px;
   }
 }
 
