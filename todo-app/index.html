@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo App</title>
+  </head>
+  <body data-theme="light">
+    <img src="images/bg-desktop-light.jpg" class="background-image" />
+    <div class="container">
+      <div class="first-head">
+        <h2>TODO</h2>
+        <img src="images/icon-moon.svg" alt="" id="icon" />
+      </div>
+      <div class="search">
+        <div class="circle-box">
+          <div class="circle"></div>
+        </div>
+        <input type="text" placeholder="Create a new todo..." id="task-input" />
+      </div>
+      <div class="list">
+        <ul id="task-list" data-available="true" data-category="All">
+          <div>You don't have any pending tasks currently!</div>
+        </ul>
+        <div class="options">
+          <div class="remaining">5 tasks unfinished</div>
+          <div class="filter" data-filter>
+            <span data-state="active" data-all-button>All</span><span data-active-button>Active</span
+            ><span data-completed-button>Completed</span>
+          </div>
+          <div class="clear">Clear completed</div>
+        </div>
+      </div>
+      <div class="filter" data-filter-mobile >
+        <span data-state="active" data-filters-mobile>All</span><span data-filters-mobile>Active</span
+        ><span data-filters-mobile>Completed</span>
+      </div>
+      <div class="dragdrop">Drag and drop to reorder list</div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

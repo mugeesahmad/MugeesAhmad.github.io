@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  background-color: hsl(32deg, 28%, 91%);
+  background-size: 100vw 45vh;
+  --container-width: 700px;
+  --container-width-second: 90vw;
+  transition: 200ms ease-in-out;
+}
+
+.background-image {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100vw;
+  height: 45vh;
+}
+
+.container {
+  width: min(var(--container-width), var(--container-width-second));
+  margin-inline: auto;
+  position: relative;
+}
+
+.first-head {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-inline: auto;
+  margin-block: 50px 30px;
+}
+.first-head h2 {
+  font-size: 2.5rem;
+  letter-spacing: 8px;
+}
+.first-head img {
+  height: 30px;
+}
+
+.search {
+  background-color: hsl(0deg, 0%, 98%);
+  width: 100%;
+  margin-inline: auto;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  transition: 200ms ease-in-out;
+}
+.search .circle-box {
+  width: 50px;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.search .circle-box .circle {
+  height: 24px;
+  width: 24px;
+  border: 1px solid hsl(236deg, 9%, 61%);
+  border-radius: 50%;
+}
+.search input {
+  height: 100%;
+  width: calc(100% - 55px);
+  align-self: flex-end;
+  border: none;
+  display: inline-block;
+  font-size: 18px;
+  color: hsl(235deg, 19%, 35%);
+  transition: 200ms ease-in-out;
+}
+.search input:focus {
+  outline: none;
+  border: none;
+}
+
+.list {
+  background-color: white;
+  width: 100%;
+  min-height: 10px;
+  margin-block: 20px;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: 200ms ease-in-out;
+}
+.list ul {
+  list-style: none;
+  min-height: max(30vh, 260px);
+  display: block;
+}
+.list ul li {
+  cursor: pointer;
+  min-height: 55px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid hsl(240deg, 14%, 85%);
+  transition: background 400ms;
+}
+.list ul li .circle-box {
+  width: 50px;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.list ul li .circle-box .circle {
+  height: 24px;
+  width: 24px;
+  border: 1px solid hsl(236deg, 9%, 61%);
+  border-radius: 50%;
+}
+.list ul li .circle-box .circle img {
+  display: none;
+}
+.list ul li .task {
+  width: calc(100% - 100px);
+  display: inline-flex;
+  align-items: center;
+  min-height: 100%;
+  padding: 15px 0;
+  color: hsl(235deg, 19%, 35%);
+  line-height: 1.4;
+}
+.list ul li .task + img {
+  margin-inline: 15px;
+  display: none;
+  width: 20px;
+}
+.list ul li:hover .cross {
+  display: block;
+}
+.list ul li[data-completed=false]:hover .circle-box .circle {
+  background: linear-gradient(135deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list ul li[data-completed=false]:hover .circle-box .circle::after {
+  content: "";
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border-radius: 50%;
+}
+.list ul li.li-task.drag {
+  background-color: rgb(221, 207, 207);
+}
+.list ul li[data-completed=true] .circle-box .circle {
+  border: none;
+  background: linear-gradient(135deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list ul li[data-completed=true] .circle-box .circle img {
+  display: block;
+  height: 10px;
+}
+.list ul li[data-completed=true] .task {
+  color: hsl(236deg, 9%, 61%);
+  text-decoration: line-through;
+}
+.list ul > div {
+  display: none;
+}
+.list ul[data-data=empty] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list ul[data-data=empty] > div {
+  color: hsl(236deg, 9%, 61%);
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+  padding-inline: 15px;
+}
+.list .options {
+  height: 40px;
+  display: flex;
+  padding-inline: 20px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  overflow: hidden;
+  color: hsl(236deg, 9%, 61%);
+}
+.list .options * {
+  cursor: pointer;
+}
+.list .options .filter {
+  font-weight: 600;
+  cursor: default;
+}
+.list .options .filter * {
+  margin-inline: 5px;
+}
+.list .options .filter span[data-state=active] {
+  color: hsl(235deg, 19%, 35%);
+}
+
+.list + .filter {
+  display: none;
+}
+
+.dragdrop {
+  color: hsl(236deg, 9%, 61%);
+  font-size: 14px;
+  text-align: center;
+  margin-block: 50px;
+}
+
+body[data-theme=dark] {
+  background-color: hsl(235deg, 21%, 11%);
+}
+body[data-theme=dark] .background-image {
+  content: url(images/bg-desktop-dark.jpg);
+}
+body[data-theme=dark] .first-head img {
+  content: url("images/icon-sun.svg");
+}
+body[data-theme=dark] .search {
+  background-color: hsl(235deg, 24%, 19%);
+}
+body[data-theme=dark] .search input {
+  background-color: hsl(235deg, 24%, 19%);
+  color: hsl(234deg, 39%, 85%);
+}
+body[data-theme=dark] .list {
+  background-color: hsl(235deg, 24%, 19%);
+}
+body[data-theme=dark] .list ul li {
+  border-color: hsl(0deg, 1%, 43%);
+}
+body[data-theme=dark] .list ul li .task {
+  color: hsl(234deg, 39%, 85%);
+}
+body[data-theme=dark] .list ul li[data-completed=false]:hover .circle-box .circle::after {
+  content: "";
+  background-color: hsl(235deg, 24%, 19%);
+}
+body[data-theme=dark] .list ul li.li-task.drag {
+  background-color: rgb(54, 55, 77);
+}
+body[data-theme=dark] .list ul li[data-completed=true] .task {
+  color: hsla(234deg, 39%, 85%, 0.5);
+}
+body[data-theme=dark] .list .options {
+  color: hsla(234deg, 39%, 85%, 0.5);
+}
+body[data-theme=dark] .list .options .filter span[data-state=active] {
+  color: hsl(220deg, 98%, 61%);
+}
+
+@media (max-width: 460px) {
+  .background-image {
+    content: url("images/bg-desktop-light.jpg");
+    height: 25vh;
+  }
+  .first-head h2 {
+    font-size: 2rem;
+  }
+  .first-head img {
+    height: 25px;
+  }
+  .search .circle-box .circle {
+    height: 22px;
+    width: 22px;
+  }
+  .search input {
+    font-size: 16px;
+  }
+  .list ul li .circle-box .circle {
+    width: 22px;
+    height: 22px;
+  }
+  .list ul li .task {
+    font-size: 16px;
+  }
+  .list ul li .task + img {
+    width: 15px;
+    display: block;
+    margin-inline: 12px;
+  }
+  .list ul li[data-completed=false]:hover .circle-box .circle {
+    background: white;
+    border: 1px solid hsl(236deg, 9%, 61%);
+  }
+  .list ul li[data-completed=false]:hover .circle-box .circle::after {
+    display: none;
+  }
+  .list .options {
+    font-size: 14px;
+  }
+  .list .options .filter {
+    display: none;
+  }
+  .list + .filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    background-color: white;
+    color: hsl(236deg, 9%, 61%);
+    border-radius: 5px;
+    transition: 200ms ease-in-out;
+  }
+  .list + .filter * {
+    cursor: pointer;
+  }
+  .list + .filter span {
+    margin-inline: 10px;
+  }
+  .list + .filter span[data-state=active] {
+    color: hsl(235deg, 44%, 60%);
+  }
+  body[data-theme=dark] .background-image {
+    content: url("images/bg-desktop-dark.jpg");
+    height: 25vh;
+  }
+  body[data-theme=dark] ul li[data-completed=false]:hover .circle-box .circle {
+    background: none;
+    border: 1px solid hsl(236deg, 9%, 61%);
+  }
+  body[data-theme=dark] ul li[data-completed=false]:hover .circle-box .circle::after {
+    display: none;
+  }
+  body[data-theme=dark] .list + .filter {
+    background-color: hsl(235deg, 24%, 19%);
+  }
+}/*# sourceMappingURL=style.css.map */
